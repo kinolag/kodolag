@@ -1,0 +1,67 @@
+/* credit: Davide */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+}
+
+img {
+  width: 74%; 
+  border: 4px solid teal;
+}
+
+.container {
+  /* display: flex;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  /* Fr is a fractional unit and 1fr is for 1 part of the available space */
+  /*align-items: center;
+  justify-content: center;*/
+}
+
+/* @media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  } 
+} */
+
+.item {
+  /* flex: 1;
+  flex-basis: 120px;  keep in a row if an item is at least 120px */
+  position: relative;
+  padding: 10px;
+  margin: auto;
+  overflow: hidden; /* keep overflow invisible if out of the area */
+}
+.overlay {
+  transition: bottom ease 1s; /* with devtools you can change the style of animation, and test its speed */
+  position: absolute; /* floating around the screen, will look for an item (the closest one) with relative positioning */
+  bottom: -100px; /*out of the way*/
+  opacity: .25;
+  left: 10%; /*temp solution*/
+  width: 80%;
+  background-color: #282c34;
+}
+
+.item:hover .overlay { /* on hover, affect overlay class */
+  bottom: 0;
+  opacity: .90;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
