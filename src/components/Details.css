@@ -43,8 +43,8 @@ h1 {
   .Details .content .text {
     text-align: center;
     border: 0px;
-
   }
+
   .Details .content {
     flex-direction: column;
   }
@@ -65,5 +65,8 @@ h1 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 1.4em;
   color: #cccccc;
-  padding: 8px;
+}
+
+.padder {
+  padding: 20px;
 }

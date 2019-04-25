@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import getGallery from './gallery-get';
-import './Details.css';
+// import './Details.css';
 
 export default class Details extends React.Component {
     constructor() {
@@ -37,7 +37,9 @@ export default class Details extends React.Component {
                     <img className='poster' src={this.state.show.logo}
                         alt={this.state.show.name} />
                 </div>
-                <Link className='a1' to='/'>Back to home page</Link>
+                <div className='padder'>
+                    <Link className='a1' to='/'>Back to home page</Link>
+                </div>
             </div>
             );
         }
