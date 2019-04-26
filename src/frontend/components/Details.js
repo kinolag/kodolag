@@ -31,13 +31,15 @@ export default class Details extends React.Component {
                 <div className='content'>
                     <div className='text'>
                         <p><span className='is-teal'>Synopsis: </span> {this.state.show.synopsis}</p>
-                        <p><span className='is-teal'>Year of release:  </span>{this.state.show.year}</p>
-                        <p><span className='is-teal'>Country:  </span>{this.state.show.country}</p>
+                        <p className='pad-10'><span className='is-teal'>Year of release:  </span>{this.state.show.year}</p>
+                        <p className='pad-10'><span className='is-teal'>Country:  </span>{this.state.show.country}</p>
                     </div>
+                    <div>
                     <img className='poster' src={this.state.show.logo}
                         alt={this.state.show.name} />
+                    </div>
                 </div>
-                <div className='padder'>
+                <div className='pad-10'>
                     <Link className='a1' to='/'>Back to home page</Link>
                 </div>
             </div>
