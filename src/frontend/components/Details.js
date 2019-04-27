@@ -29,7 +29,7 @@ export default class Details extends React.Component {
             <div className='Details'>
                 <h1 className='text'>{this.state.show.name}</h1>
                 <div className='content'>
-                    <div className='text'>
+                    <div className='text is-gill'>
                         <p><span className='is-teal'>Synopsis: </span> {this.state.show.synopsis}</p>
                         <p className='pad-10'><span className='is-teal'>Year of release:  </span>{this.state.show.year}</p>
                         <p className='pad-10'><span className='is-teal'>Country:  </span>{this.state.show.country}</p>
@@ -40,7 +40,7 @@ export default class Details extends React.Component {
                     </div>
                 </div>
                 <div className='pad-10'>
-                    <Link className='a1' to='/'>Back to home page</Link>
+                    <Link className='a1 is-lucida' to='/'>Back to film list</Link>
                 </div>
             </div>
             );
