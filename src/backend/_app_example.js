@@ -1,18 +1,10 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
+const port = 3000
 
-const port = 3003;
-const getShows = require('./shows');
+app.get('/', (req, res) => res.send('Hello World!'))
 
-app.get('/rest/shows', (req, res) => res.send(getShows()));
-
-app.listen(port, () => console.log(`Backend app listening on port ${port}!`));
-
-// app has been set to 'express'
-// express creates an http get request, from rel. path - it could support an absolute path, by importing a middleware
-// function with two parameters: request and response
-// send acts as a display. send (to the browser)
-// get, put, delete and post are a bit like CRUD
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 /*
 
