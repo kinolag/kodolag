@@ -3,6 +3,14 @@ import Show from './Show';
 import getGallery from './gallery-get';
 
 export default function Gallery(props) {
+    fetch('/rest/shows')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (myJson) {
+            console.log(JSON.stringify(myJson));
+        });
+        
     return (
         <div>
             <div className='container'>
