@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-//const port = 3003; //edited
+//const port = 3003; //NB edit
 const port = process.env.PORT || 3003;
 
 const getShows = require('./shows');
