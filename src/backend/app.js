@@ -1,10 +1,19 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
-const port = 3003;
+//const port = 3003;
+const port = process.env.PORT || 3003;
+
 const getShows = require('./shows');
 
 app.get('/rest/shows', (req, res) => res.send(getShows()));
+
+app.use(express.static(path.join(__dirname, './build')));
+
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../../build', 'index.html'));
+});
 
 app.listen(port, () => console.log(`Backend app listening on port ${port}!`));
 
@@ -12,7 +21,7 @@ app.listen(port, () => console.log(`Backend app listening on port ${port}!`));
 // express creates an http get request, from rel. path - it could support an absolute path, by importing a middleware
 // function with two parameters: request and response
 // send acts as a display. send (to the browser)
-// get, put, delete and post are a bit like CRUD
+// get, put, delete and post (and patch), the HTTP Methods for RESTful Services, are a bit like CRUD
 
 /*
 
