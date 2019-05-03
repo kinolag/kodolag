@@ -13,7 +13,8 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Gallery} />
             <Route exact path='/not-found' component={NotFound} />
-            <Route exact path='/:showId' component={Details} /> {/* : is a wildcard, dynamic URLs - it will route to any urls */}
+            <Route exact path='/:showId' component={Details} /> 
+            {/* : is a wildcard, dynamic URLs - it will route to any urls */}
           </Switch>
         </div>
       </Router>
