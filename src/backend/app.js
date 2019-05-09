@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-//const port = 3003; //NB edit
-const port = process.env.PORT || 3003;
+//const port = 3003; 
+const port = process.env.PORT || 3003; 
+//process is a variable automatically set
 
 const getShows = require('./shows');
 

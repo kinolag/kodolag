@@ -3,7 +3,7 @@ import Show from './Show';
 import getGallery from './gallery-get';
 
 export default function Gallery(props) {
-    fetch('/rest/shows')
+    fetch('/rest/shows') // edited path
         .then(function (response) {
             return response.json();
         })
