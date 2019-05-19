@@ -34,7 +34,7 @@ export default class Details extends React.Component {
     }
 
     render() {
-        if (this.state.show.id === '') {
+        if (this.state.show === '') {
             return <div>Loading...</div>;
         } else if (this.state.show) {
             return (
