@@ -7,7 +7,7 @@ export default class Details extends React.Component {
     constructor() {
         super();
         this.state = {
-            show: {} // fetch find (below) returns an object 
+            show: '' // fetch find (below) returns an object 
         };
     }
 
@@ -34,7 +34,7 @@ export default class Details extends React.Component {
     }
 
     render() {
-        if (!('id' in this.state.show)) {
+        if (this.state.show.id === '') {
             return <div>Loading...</div>;
         } else if (this.state.show) {
             return (
