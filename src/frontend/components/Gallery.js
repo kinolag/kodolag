@@ -1,5 +1,6 @@
 import React from 'react';
 import Show from './Show';
+import Loading from '../common/Loader/Loading';
 // import getGallery from './gallery-get';
 
 export default class Gallery extends React.Component {
@@ -22,22 +23,24 @@ export default class Gallery extends React.Component {
                 })
             );
     }
-    
+
 
     render() {
         return (
             <div>
                 <div className='container'>
                     {
-                        //getGallery().map(show => (
-                        this.state.shows.map(show => (
-                            <Show
-                                key={show.id} 
-                                id={show.id}
-                                name={show.name}
+                        this.state.shows.length ?
+                            //getGallery().map(show => (
+                            this.state.shows.map(show =>
+                                <Show
+                                    key={show.id}
+                                    id={show.id}
+                                    name={show.name}
                                 // logo={show.logo}
-                            />
-                        ))
+                                />
+                            ) :
+                            <Loading />
                     }
                 </div>
             </div>
@@ -45,4 +48,3 @@ export default class Gallery extends React.Component {
     }
 
 }
-

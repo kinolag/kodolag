@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import Loading from '../common/loader/Loading';
 // import getGallery from './gallery-get';
 // import './Details.css';
 
@@ -35,7 +36,7 @@ export default class Details extends React.Component {
 
     render() {
         if (this.state.show === '') {
-            return <div>Loading...</div>;
+            return <Loading />;
         } else if (this.state.show) {
             return (
                 <div className='Details'>
