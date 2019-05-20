@@ -1,6 +1,6 @@
 import React from 'react';
 import Show from './Show';
-import Loading from '../common/Loader/Loading';
+import Loading from '../common/loader/Loading';
 // import getGallery from './gallery-get';
 
 export default class Gallery extends React.Component {
