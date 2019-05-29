@@ -1,25 +1,51 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const db = require('./db');
 
-//const port = 3003; 
+// const port = 3003; 
 const port = process.env.PORT || 3003; 
-//process is a variable automatically set
+// process is a variable automatically set (if n/a use 3003)
+// The highlighted line will take the value of the PORT if it’s available or default to 3003 as a fallback port to listen on. 
 
-const getShows = require('./shows');
+// db block, calling the connect method of db.js, then using express to get the data
+// NB find() and toArray() are Mongo methods. We are in a node environment
+db.connect().then(dbo => {
+    // Fetch from Gallery
+    app.get('/rest/shows', (req,res) => {
+        dbo.collection('shows').find({}).toArray((err, results) => {
+            if (err) throw err;
+            res.send(results);
+        });
+    });
+    // Fetch from Details
+    app.get('/rest/shows/:id', (req,res) => {
+        dbo.collection('shows').findOne({ id: req.params.id }, (err, doc) => {
+            if (err) throw err;
+            res.send(doc);
+        });
+    });
 
-app.get('/rest/shows', (req, res) => res.send(getShows()));
+    //serve static files
+    app.use(express.static(path.join(__dirname, '../../build')));
 
-app.use(express.static(path.join(__dirname, '../../build')));
+    app.get('*', function (req, res) {
+        res.sendFile(path.join(__dirname, '../../build', 'index.html'));
+    });
+    
+    app.listen(port, () => console.log(`Backend app listening on port ${port}!`));
 
-app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, '../../build', 'index.html'));
-});
+})
 
-app.listen(port, () => console.log(`Backend app listening on port ${port}!`));
+// data from backend (pre db solution)
 
+// const getShows = require('./shows');
+// app.get('/rest/shows', (req, res) => res.send(getShows()));
+
+
+// Notes: 
 // app has been set to 'express'
-// express creates an http get request, from rel. path - it could support an absolute path, by importing a middleware
+// express creates an http get request, from relative path - it could support an absolute path, by importing a middleware
 // function with two parameters: request and response
 // send acts as a display. send (to the browser)
 // get, put, delete and post (and patch), the HTTP Methods for RESTful Services, are a bit like CRUD
