@@ -11,14 +11,14 @@ const port = process.env.PORT || 3003;
 // db block, calling the connect method of db.js, then using express to get the data
 // NB find() and toArray() are Mongo methods. We are in a node environment
 db.connect().then(dbo => {
-    // Fetch from Gallery
+    // Fetch (from Gallery)
     app.get('/rest/shows', (req,res) => {
         dbo.collection('shows').find({}).toArray((err, results) => {
             if (err) throw err;
             res.send(results);
         });
     });
-    // Fetch from Details
+    // Fetch (from Details)
     app.get('/rest/shows/:id', (req,res) => {
         dbo.collection('shows').findOne({ id: req.params.id }, (err, doc) => {
             if (err) throw err;
