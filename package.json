@@ -34,5 +34,8 @@
     "not op_mini all"
   ],
   "devDependencies": {},
-  "proxy": "http://localhost:3003"
+  "proxy": "http://localhost:3003",
+  "engines": {
+    "node": "14.x"
+  }
 }
